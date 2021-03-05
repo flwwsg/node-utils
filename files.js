@@ -44,9 +44,18 @@ function camelToDash(key) {
     return key.replace(/([A-Z])/g, '-$1').toLowerCase();
 }
 
+const fileExists = filePath => {
+    try {
+        fs.lstatSync(filePath);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
 
 module.exports = {
     rmDir,
     mkDir,
     camelToDash,
+    fileExists,
 }
